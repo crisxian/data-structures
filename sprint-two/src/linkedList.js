@@ -6,12 +6,34 @@ var makeLinkedList = function(){
   list.tail = null;
 
   list.addToTail = function(value){
+    if (list.head === null) {
+      list.tail = list.head = makeNode(value);
+    }
+    else {
+      list.tail = list.tail.next = makeNode(value);
+    };
   };
 
   list.removeHead = function(){
+    var value = list.head.value;
+    var tmp = list.head;
+
+    list.head = list.head.next
+    delete tmp; // delete so all reference will be null
+
+    return value;
   };
 
   list.contains = function(target){
+    var selector = list.head;
+    while (selector !== null) {
+      if (selector.value === target) {
+        return true;
+      };
+      selector = selector.next;
+    };
+    
+    return false;
   };
 
   return list;
