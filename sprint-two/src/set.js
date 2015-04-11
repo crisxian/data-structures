@@ -1,20 +1,25 @@
 // problem set written by Hack Reactor. challenge files cloned on 4/9/2015 for educational purposes.
 // CHALLENGES AND FUNCTIONS COMPLETED BY: github.com/crisxian
+
+// item might be string or other
 var makeSet = function(){
   var set = Object.create(setPrototype);
-  set._storage = undefined;
+  set._storage = {};
   return set;
 };
 
 var setPrototype = {};
 
 setPrototype.add = function(item){
+	this._storage[item] = true;
 };
 
 setPrototype.contains = function(item){
+	return this._storage[item] || false;
 };
 
 setPrototype.remove = function(item){
+	delete this._storage[item];
 };
 
 /*
