@@ -21,7 +21,7 @@ describe('graph', function() {
     expect(graph.contains('kittens')).to.equal(true);
   });
 
-  it('should remove nodes that were inserted', function() {
+  it('should remove nodes that were removed', function() {
     graph.addNode('puppies');
     graph.removeNode('puppies');
     expect(graph.contains('puppies')).to.equal(false);
